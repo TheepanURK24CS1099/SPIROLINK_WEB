@@ -27,18 +27,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-slate-400 hover:text-white transition">
-                  About Us
-                </Link>
-              </li>
-              <li>
                 <Link to="/services" className="text-slate-400 hover:text-white transition">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className="text-slate-400 hover:text-white transition">
-                  Portfolio
+                <Link to="/resources" className="text-slate-400 hover:text-white transition">
+                  Resources
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-slate-400 hover:text-white transition">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -57,11 +57,6 @@ export function Footer() {
                   Terms & Conditions
                 </Link>
               </li>
-              <li>
-                <Link to="/contact" className="text-slate-400 hover:text-white transition">
-                  Contact
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -78,7 +73,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2 text-slate-400">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>namakkal,TN</span>
+                <span>Namakkal, TN</span>
               </li>
             </ul>
           </div>
@@ -87,7 +82,7 @@ export function Footer() {
         <div className="border-t border-slate-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-400 text-sm">
-              {currentYear} GreenFluxion. All rights reserved.
+              © {currentYear} GreenFluxion. All rights reserved.
             </p>
             <div className="flex gap-4">
               <a

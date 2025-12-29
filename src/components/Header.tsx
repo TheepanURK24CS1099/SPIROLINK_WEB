@@ -1,18 +1,14 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Menu, X, Leaf } from 'lucide-react';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-
-  const isActive = (path: string) => location.pathname === path;
 
   const navLinks = [
     { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
     { path: '/services', label: 'Services' },
-    { path: '/projects', label: 'Portfolio' },
+    { path: '/resources', label: 'Resources' },
     { path: '/contact', label: 'Contact' },
   ];
 
@@ -28,13 +24,9 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
-                key={link.path}
+                key={link.label}
                 to={link.path}
-                className={`font-medium transition-colors ${
-                  isActive(link.path)
-                    ? 'text-green-600'
-                    : 'text-slate-700 hover:text-green-600'
-                }`}
+                className="font-medium text-slate-700 hover:text-green-600 transition-colors"
               >
                 {link.label}
               </Link>
@@ -57,14 +49,10 @@ export function Header() {
           <nav className="md:hidden pb-4 space-y-2">
             {navLinks.map((link) => (
               <Link
-                key={link.path}
+                key={link.label}
                 to={link.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-2 rounded-lg transition-colors ${
-                  isActive(link.path)
-                    ? 'bg-green-50 text-green-600 font-medium'
-                    : 'text-slate-700 hover:bg-gray-50'
-                }`}
+                className="block px-4 py-2 rounded-lg transition-colors text-slate-700 hover:bg-green-50"
               >
                 {link.label}
               </Link>

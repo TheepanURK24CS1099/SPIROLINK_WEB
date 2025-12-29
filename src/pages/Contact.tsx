@@ -10,11 +10,12 @@ export default function Contact() {
     email: '',
     phone: '',
     message: '',
+    serviceType: 'general',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -45,7 +46,7 @@ export default function Contact() {
       console.log('Form data:', formData);
 
       setStatus('success');
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', message: '', serviceType: 'general' });
       setTimeout(() => setStatus('idle'), 5000);
     } catch (err) {
       setErrorMessage('Failed to send message. Please try again.');
@@ -156,6 +157,27 @@ export default function Contact() {
             </div>
 
             <div>
+              <label htmlFor="serviceType" className="block text-sm font-medium text-slate-900 mb-2">
+                Service Type *
+              </label>
+              <select
+                id="serviceType"
+                name="serviceType"
+                value={formData.serviceType}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none"
+              >
+                <option value="general">General Inquiry</option>
+                <option value="pon-ftth">PON & FTTH Network Planning</option>
+                <option value="microwave">Microwave Network Design</option>
+                <option value="optical">Long-Haul Optical Networks</option>
+                <option value="wifi">Enterprise Wi-Fi Network Planning</option>
+                <option value="consultation">Technical Consultation</option>
+                <option value="quote">Request a Quote</option>
+              </select>
+            </div>
+
+            <div>
               <label htmlFor="message" className="block text-sm font-medium text-slate-900 mb-2">
                 Message *
               </label>
@@ -166,14 +188,14 @@ export default function Contact() {
                 onChange={handleChange}
                 rows={6}
                 className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent outline-none resize-none"
-                placeholder="Tell us about your project..."
+                placeholder="Tell us about your project or requirements..."
                 required
               ></textarea>
             </div>
 
             {status === 'success' && (
               <div className="p-4 bg-green-100 text-green-700 rounded-lg">
-                Thank you! We've received your message and will get back to you soon.
+                Thank you! We've received your message and will get back to you soon with a quote or proposal.
               </div>
             )}
 

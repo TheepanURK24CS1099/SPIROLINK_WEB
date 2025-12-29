@@ -16,7 +16,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    'font-semibold rounded-lg transition-all inline-flex items-center justify-center gap-2';
+    'font-semibold rounded-lg transition-all duration-300 inline-flex items-center justify-center gap-2 hover:scale-105 hover:-translate-y-1 hover:shadow-2xl active:scale-95';
 
   const variantStyles = {
     primary:
