@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: spirolink-frontend
+    env: node
+    rootDir: ./
+    buildCommand: npm ci && npm run build
+    startCommand: npm run preview
+    envVars:
+      - key: NODE_ENV
+        value: production
