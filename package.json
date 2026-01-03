@@ -8,6 +8,7 @@
     "dev:all": "concurrently \"npm run dev\" \"npm run dev:backend\"",
     "dev:backend": "cd chatbot-backend && npm run dev",
     "build": "vite build",
+    "render-build": "bash render-build.sh",
     "start": "node server.js",
     "lint": "eslint .",
     "preview": "vite preview",
