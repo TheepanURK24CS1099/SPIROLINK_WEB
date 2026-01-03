@@ -4,12 +4,15 @@ import { Button } from '../components/ui/Button';
 import { Section, SectionHeading } from '../components/ui/Section';
 import { useI18n } from '../i18n/I18nProvider';
 import StayTuned from '../components/StayTuned';
+import NetworkBackground from '../components/NetworkBackground';
 
 export default function Home() {
   const { t } = useI18n();
 
   return (
     <>
+      <NetworkBackground />
+      <div style={{ position: 'relative', zIndex: 10 }}>
       {/* SPIROLINK Hero - Original Design */}
       <Section className="bg-gradient-to-br from-green-50 to-blue-50 py-32">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -260,6 +263,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
+      </div>
     </>
   );
 }
