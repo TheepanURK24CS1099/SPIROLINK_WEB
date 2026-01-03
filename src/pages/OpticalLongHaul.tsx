@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Section, SectionHeading } from '../components/ui/Section';
 import { Button } from '../components/ui/Button';
-import { ServiceHero, ServiceSection, InfoCard, CTA } from '../components/ServiceDetailLayout';
+import { ServiceHero, ServiceSection, CTA } from '../components/ServiceDetailLayout';
 
 export default function OpticalLongHaul() {
   return (
@@ -74,12 +74,23 @@ export default function OpticalLongHaul() {
 
       <ServiceSection title="Industries We Serve" subtitle="Sector-Specific Solutions">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          <InfoCard icon={null} title="Telecommunications Carriers" description="National and international backbone networks, international gateway systems, cross-border connectivity, and global internet exchange points." />
-          <InfoCard icon={null} title="Internet Service Providers" description="High-capacity backbone infrastructure, regional fiber networks, data center interconnections, and content delivery networks." />
-          <InfoCard icon={null} title="Data Center Operators" description="Campus-wide interconnections, multi-data center replication, disaster recovery links, and cloud infrastructure networks." />
-          <InfoCard icon={null} title="Enterprise & Financial Services" description="Wide-area network backbones, branch office interconnections, trading network links, and business continuity systems." />
-          <InfoCard icon={null} title="Cable & Broadcasting" description="Content distribution networks, broadcast centers, master control centers, and media transport networks." />
-          <InfoCard icon={null} title="Government & Military" description="Secure government networks, strategic communications infrastructure, critical infrastructure protection, and classified networks." />
+          {[
+            { title: "Telecommunications Carriers", desc: "National and international backbone networks, international gateway systems, cross-border connectivity, and global internet exchange points.", icon: "📡", color: "from-orange-50 to-red-50", border: "border-orange-200" },
+            { title: "Internet Service Providers", desc: "High-capacity backbone infrastructure, regional fiber networks, data center interconnections, and content delivery networks.", icon: "🌐", color: "from-amber-50 to-orange-50", border: "border-amber-200" },
+            { title: "Data Center Operators", desc: "Campus-wide interconnections, multi-data center replication, disaster recovery links, and cloud infrastructure networks.", icon: "🏢", color: "from-yellow-50 to-amber-50", border: "border-yellow-200" },
+            { title: "Enterprise & Financial Services", desc: "Wide-area network backbones, branch office interconnections, trading network links, and business continuity systems.", icon: "💼", color: "from-orange-50 to-yellow-50", border: "border-orange-200" },
+            { title: "Cable & Broadcasting", desc: "Content distribution networks, broadcast centers, master control centers, and media transport networks.", icon: "📺", color: "from-red-50 to-orange-50", border: "border-red-200" },
+            { title: "Government & Military", desc: "Secure government networks, strategic communications infrastructure, critical infrastructure protection, and classified networks.", icon: "🛡️", color: "from-rose-50 to-red-50", border: "border-rose-200" }
+          ].map((item, idx) => (
+            <div key={idx} className={`group relative animate-card-${idx + 1}`}>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className={`relative p-6 bg-gradient-to-br ${item.color} rounded-xl border ${item.border} hover:border-orange-400/50 transition-all duration-300 h-full flex flex-col card-glow`}>
+                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-3">{item.title}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed flex-grow">{item.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </ServiceSection>
 

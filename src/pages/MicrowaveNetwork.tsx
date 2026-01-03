@@ -23,15 +23,15 @@ export default function MicrowaveNetwork() {
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {[
-            { title: "Site Survey & Path Analysis", desc: "Terrain and obstruction analysis, propagation modeling, link budget calculations, environmental assessment", icon: "📍" },
-            { title: "Link Engineering", desc: "Point-to-point design, point-to-multipoint solutions, antenna selection & placement, redundancy strategies", icon: "🔗" },
-            { title: "Regulatory & Compliance", desc: "Frequency licensing support, regulatory documentation, standards compliance (FCC, ETSI, ITU), spectrum coordination", icon: "⚖️" },
-            { title: "Implementation & Commissioning", desc: "Technical documentation, equipment specifications, installation supervision, performance testing", icon: "🛠️" }
+            { title: "Site Survey & Path Analysis", desc: "Terrain and obstruction analysis, propagation modeling, link budget calculations, environmental assessment", icon: "📍", color: "from-sky-50 to-cyan-50", border: "border-sky-200" },
+            { title: "Link Engineering", desc: "Point-to-point design, point-to-multipoint solutions, antenna selection & placement, redundancy strategies", icon: "🔗", color: "from-blue-50 to-cyan-50", border: "border-blue-200" },
+            { title: "Regulatory & Compliance", desc: "Frequency licensing support, regulatory documentation, standards compliance (FCC, ETSI, ITU), spectrum coordination", icon: "⚖️", color: "from-cyan-50 to-teal-50", border: "border-cyan-200" },
+            { title: "Implementation & Commissioning", desc: "Technical documentation, equipment specifications, installation supervision, performance testing", icon: "🛠️", color: "from-indigo-50 to-blue-50", border: "border-indigo-200" }
           ].map((item, idx) => (
-            <div key={idx} className="group relative">
+            <div key={idx} className={`group relative animate-card-${idx + 1}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative p-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl border border-slate-200 hover:border-cyan-400/50 transition-all duration-300 h-full flex flex-col">
-                <div className="text-3xl mb-4">{item.icon}</div>
+              <div className={`relative p-6 bg-gradient-to-br ${item.color} rounded-xl border ${item.border} hover:border-cyan-400/50 transition-all duration-300 h-full flex flex-col card-glow`}>
+                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
                 <h3 className="text-lg font-bold text-slate-900 mb-3">{item.title}</h3>
                 <p className="text-sm text-slate-600 leading-relaxed flex-grow">{item.desc}</p>
               </div>

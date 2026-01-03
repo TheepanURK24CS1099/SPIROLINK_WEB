@@ -60,46 +60,22 @@ export default function WifiNetwork() {
 
       <ServiceSection title="Industries & Environments We Serve" subtitle="Enterprise Solutions Across Sectors">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div className="bg-slate-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Corporate & Enterprise</h3>
-            <p className="text-slate-700">Headquarters, regional offices, multi-floor buildings, open office layouts, and distributed campus environments supporting BYOD.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Healthcare Facilities</h3>
-            <p className="text-slate-700">Hospitals, medical centers, clinics, and medical campuses supporting clinical applications, medical devices, and RTLS systems.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Education Institutions</h3>
-            <p className="text-slate-700">K-12 schools, colleges, universities, libraries, and research facilities enabling digital learning and 1:1 device programs.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Hospitality & Tourism</h3>
-            <p className="text-slate-700">Hotels, resorts, casinos, theme parks, and restaurants delivering seamless guest experiences and operational efficiency.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Retail & Commercial</h3>
-            <p className="text-slate-700">Retail stores, shopping malls, restaurants, and commercial buildings supporting point-of-sale and customer engagement.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Manufacturing & Warehousing</h3>
-            <p className="text-slate-700">Factories, distribution centers, and logistics facilities supporting mobile devices, AGVs, and industrial IoT systems.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Transportation & Transit</h3>
-            <p className="text-slate-700">Airports, train stations, bus terminals, and ports providing passenger connectivity and operational communications.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Sports & Entertainment</h3>
-            <p className="text-slate-700">Stadiums, arenas, concert halls, and convention centers supporting tens of thousands of concurrent users.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Government & Public Sector</h3>
-            <p className="text-slate-700">Government buildings, public safety operations, libraries, parks, and smart city infrastructure.</p>
-          </div>
-          <div className="bg-slate-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold text-slate-900 mb-2">Smart Buildings & Real Estate</h3>
-            <p className="text-slate-700">Commercial real estate, multi-tenant buildings, coworking spaces, and smart building systems integration.</p>
-          </div>
+          {[
+            { title: "Corporate & Enterprise", desc: "Headquarters, regional offices, multi-floor buildings, open office layouts, and distributed campus environments supporting BYOD.", color: "from-purple-50 to-indigo-50", border: "border-purple-200" },
+            { title: "Healthcare Facilities", desc: "Hospitals, medical centers, clinics, and medical campuses supporting clinical applications, medical devices, and RTLS systems.", color: "from-rose-50 to-pink-50", border: "border-rose-200" },
+            { title: "Education Institutions", desc: "K-12 schools, colleges, universities, libraries, and research facilities enabling digital learning and 1:1 device programs.", color: "from-blue-50 to-purple-50", border: "border-blue-200" },
+            { title: "Hospitality & Tourism", desc: "Hotels, resorts, casinos, theme parks, and restaurants delivering seamless guest experiences and operational efficiency.", color: "from-amber-50 to-orange-50", border: "border-amber-200" },
+            { title: "Retail & Commercial", desc: "Retail stores, shopping malls, restaurants, and commercial buildings supporting point-of-sale and customer engagement.", color: "from-lime-50 to-green-50", border: "border-lime-200" },
+            { title: "Manufacturing & Warehousing", desc: "Factories, distribution centers, and logistics facilities supporting mobile devices, AGVs, and industrial IoT systems.", color: "from-slate-100 to-slate-200", border: "border-slate-300" }
+          ].map((item, idx) => (
+            <div key={idx} className={`group relative animate-card-${idx + 1}`}>
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className={`relative p-6 bg-gradient-to-br ${item.color} rounded-lg border ${item.border} hover:border-purple-400/50 transition-all duration-300 card-glow`}>
+                <h3 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-purple-700 transition-colors">{item.title}</h3>
+                <p className="text-slate-700 group-hover:text-slate-800 transition-colors">{item.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </ServiceSection>
 

@@ -1,3 +1,132 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Card Animation */
+@keyframes slideUp {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 3D Rotation Animations */
+@keyframes rotate3dX {
+  0% {
+    transform: perspective(1200px) rotateX(0deg) rotateY(2deg) rotateZ(0deg);
+  }
+  50% {
+    transform: perspective(1200px) rotateX(3deg) rotateY(-2deg) rotateZ(1deg);
+  }
+  100% {
+    transform: perspective(1200px) rotateX(0deg) rotateY(2deg) rotateZ(0deg);
+  }
+}
+
+@keyframes rotate3dY {
+  0% {
+    transform: perspective(1200px) rotateX(-2deg) rotateY(0deg) rotateZ(0deg);
+  }
+  50% {
+    transform: perspective(1200px) rotateX(2deg) rotateY(3deg) rotateZ(-1deg);
+  }
+  100% {
+    transform: perspective(1200px) rotateX(-2deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+
+@keyframes rotate3dZ {
+  0% {
+    transform: perspective(1200px) rotateX(1deg) rotateY(-1deg) rotateZ(0deg);
+  }
+  50% {
+    transform: perspective(1200px) rotateX(-1deg) rotateY(2deg) rotateZ(2deg);
+  }
+  100% {
+    transform: perspective(1200px) rotateX(1deg) rotateY(-1deg) rotateZ(0deg);
+  }
+}
+
+/* Staggered animation delays */
+.animate-card-1 {
+  animation: slideUp 3s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.animate-card-2 {
+  animation: slideUp 3s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.animate-card-3 {
+  animation: slideUp 3s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+.animate-card-4 {
+  animation: slideUp 3s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.animate-card-5 {
+  animation: slideUp 3s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.animate-card-6 {
+  animation: slideUp 3s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-card-10 {
+  animation: slideUp 3s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+/* 3D Rotation Card Classes */
+.rotate-3d-1 {
+  animation: rotate3dX 6s ease-in-out infinite;
+}
+
+.rotate-3d-2 {
+  animation: rotate3dY 6s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+.rotate-3d-3 {
+  animation: rotate3dZ 6s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.rotate-3d-4 {
+  animation: rotate3dX 6s ease-in-out infinite;
+  animation-delay: 0.9s;
+}
+
+.rotate-3d-5 {
+  animation: rotate3dY 6s ease-in-out infinite;
+  animation-delay: 1.2s;
+}
+
+/* Glow effects */
+.card-glow {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}

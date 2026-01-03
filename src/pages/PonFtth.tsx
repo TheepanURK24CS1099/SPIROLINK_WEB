@@ -23,15 +23,15 @@ export default function PonFtth() {
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {[
-            { title: "Geographic Assessment", desc: "Market analysis, demographic mapping, fiber availability evaluation, and service territory planning", icon: "📍" },
-            { title: "Route Planning", desc: "Optimal fiber routes, utility coordination, environmental assessment, and cost optimization", icon: "🗺️" },
-            { title: "Network Design", desc: "PON topology selection, splitter placement, service area segmentation, and capacity planning", icon: "📊" },
-            { title: "Economic Modeling", desc: "Investment analysis, ROI calculations, subsidy optimization, and financial feasibility studies", icon: "💰" }
+            { title: "Geographic Assessment", desc: "Market analysis, demographic mapping, fiber availability evaluation, and service territory planning", icon: "📍", color: "from-emerald-50 to-teal-50", border: "border-emerald-200" },
+            { title: "Route Planning", desc: "Optimal fiber routes, utility coordination, environmental assessment, and cost optimization", icon: "🗺️", color: "from-cyan-50 to-blue-50", border: "border-cyan-200" },
+            { title: "Network Design", desc: "PON topology selection, splitter placement, service area segmentation, and capacity planning", icon: "📊", color: "from-green-50 to-emerald-50", border: "border-green-200" },
+            { title: "Economic Modeling", desc: "Investment analysis, ROI calculations, subsidy optimization, and financial feasibility studies", icon: "💰", color: "from-lime-50 to-green-50", border: "border-lime-200" }
           ].map((item, idx) => (
-            <div key={idx} className="group relative">
+            <div key={idx} className={`group relative animate-card-${idx + 1}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative p-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl border border-slate-200 hover:border-green-400/50 transition-all duration-300 h-full flex flex-col">
-                <div className="text-3xl mb-4">{item.icon}</div>
+              <div className={`relative p-6 bg-gradient-to-br ${item.color} rounded-xl border ${item.border} hover:border-green-400/50 transition-all duration-300 h-full flex flex-col card-glow`}>
+                <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
                 <h3 className="text-lg font-bold text-slate-900 mb-3">{item.title}</h3>
                 <p className="text-sm text-slate-600 leading-relaxed flex-grow">{item.desc}</p>
               </div>

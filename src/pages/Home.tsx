@@ -60,7 +60,7 @@ export default function Home() {
             { title: t('homePoNFtthCapacityTitle'), desc: t('homePoNFtthCapacityDesc'), icon: '📊' },
             { title: t('homePoNFtthMigrationTitle'), desc: t('homePoNFtthMigrationDesc'), icon: '🔄' }
           ].map((item, idx) => (
-            <div key={idx} className="group relative">
+            <div key={idx} className={`group relative rotate-3d-${(idx % 3) + 1}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative p-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl border border-slate-200 hover:border-green-400/50 transition-all duration-300 h-full flex flex-col">
                 <div className="text-3xl mb-4">{item.icon}</div>
@@ -95,7 +95,7 @@ export default function Home() {
             { title: t('homeMicrowaveRegulatoryTitle'), desc: t('homeMicrowaveRegulatoryDesc'), icon: '⚖️' },
             { title: t('homeMicrowaveImplementationTitle'), desc: t('homeMicrowaveImplementationDesc'), icon: '🛠️' }
           ].map((item, idx) => (
-            <div key={idx} className="group relative">
+            <div key={idx} className={`group relative rotate-3d-${(idx % 3) + 1}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative p-6 bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl border border-slate-600/50 hover:border-blue-400/50 transition-all duration-300 h-full flex flex-col">
                 <div className="text-3xl mb-4">{item.icon}</div>
@@ -130,7 +130,7 @@ export default function Home() {
             { title: t('homeOpticalResilienceTitle'), desc: t('homeOpticalResilienceDesc'), icon: '🛡️' },
             { title: t('homeOpticalMigrationTitle'), desc: t('homeOpticalMigrationDesc'), icon: '🚀' }
           ].map((item, idx) => (
-            <div key={idx} className="group relative">
+            <div key={idx} className={`group relative rotate-3d-${(idx % 3) + 1}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative p-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl border border-slate-200 hover:border-orange-400/50 transition-all duration-300 h-full flex flex-col">
                 <div className="text-3xl mb-4">{item.icon}</div>
@@ -159,7 +159,7 @@ export default function Home() {
           dark={true}
         />
         <div className="grid grid-cols-1 md:grid-cols-1 gap-6 mt-12 max-w-2xl mx-auto">
-          <div className="group relative">
+          <div className={`group relative rotate-3d-1`}>
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="relative p-8 bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl border border-slate-600/50 hover:border-purple-400/50 transition-all duration-300">
               <div className="text-4xl mb-4">📶</div>
@@ -189,7 +189,7 @@ export default function Home() {
             { title: t('homeSustainableTitle'), desc: t('homeSustainableDesc'), icon: <Leaf className="w-8 h-8 text-green-500" /> },
             { title: t('homeExpertTitle'), desc: t('homeExpertDesc'), icon: <Shield className="w-8 h-8 text-blue-500" /> }
           ].map((item, idx) => (
-            <div key={idx} className="group relative overflow-hidden">
+            <div key={idx} className={`group relative overflow-hidden rotate-3d-${(idx % 3) + 1}`}>
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-green-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="relative p-8 rounded-2xl border border-slate-200 hover:border-green-400/30 bg-white/80 backdrop-blur transition-all duration-300 h-full flex flex-col hover:shadow-xl hover:-translate-y-1">
                 <div className="mb-4 p-3 bg-slate-100 rounded-lg w-fit">{item.icon}</div>
