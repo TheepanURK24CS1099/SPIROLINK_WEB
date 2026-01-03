@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import OpenAI from "openai";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 dotenv.config();
 
@@ -28,15 +28,14 @@ const openai = new OpenAI({
 });
 
 /* ===============================
-   EMAIL (GMAIL)
+   EMAIL (RESEND API)
 ================================ */
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
+if (!process.env.RESEND_API_KEY) {
+  console.error("❌ RESEND_API_KEY missing");
+  process.exit(1);
+}
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 /* ===============================
    HEALTH CHECK
@@ -45,7 +44,8 @@ app.get("/health", (req, res) => {
   res.json({
     status: "OK",
     backend: "SPIROLINK",
-    emailConfigured: !!process.env.EMAIL_USER,
+    emailService: "resend",
+    emailConfigured: !!process.env.RESEND_API_KEY,
     openaiConfigured: !!process.env.OPENAI_API_KEY,
   });
 });
@@ -98,7 +98,7 @@ app.post("/chat", async (req, res) => {
 });
 
 /* ===============================
-   CONTACT FORM (EMAIL)
+   CONTACT FORM (EMAIL via RESEND)
 ================================ */
 app.post("/contact", async (req, res) => {
   try {
@@ -112,9 +112,9 @@ app.post("/contact", async (req, res) => {
     }
 
     // Email to company
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: 'contact@spirolink.com',
+    await resend.emails.send({
+      from: "onboarding@resend.dev",
+      to: "contact@spirolink.com",
       subject: `New Contact Form - ${serviceType || "General"}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -130,8 +130,8 @@ app.post("/contact", async (req, res) => {
     });
 
     // Confirmation email to user
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+    await resend.emails.send({
+      from: "onboarding@resend.dev",
       to: email,
       subject: "We received your message - SPIROLINK",
       html: `
@@ -143,6 +143,8 @@ app.post("/contact", async (req, res) => {
       `,
     });
 
+    console.log(`✅ Contact form email sent from ${email} (${serviceType})`);
+
     res.json({
       success: true,
       message: "Email sent successfully",
@@ -151,7 +153,7 @@ app.post("/contact", async (req, res) => {
     console.error("❌ Email error:", error.message);
     res.status(500).json({
       success: false,
-      error: "Failed to send email",
+      error: "Failed to send email: " + error.message,
     });
   }
 });
