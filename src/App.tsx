@@ -21,31 +21,10 @@ import Terms from './pages/Terms';
 export default function App() {
   return (
     <I18nProvider>
-      <BrowserRouter>
-        <NetworkBackground />
-        <div className="flex flex-col min-h-screen relative z-[5]">
-          <Header />
-          <main className="flex-grow pt-16">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/pon-ftth" element={<PonFtth />} />
-              <Route path="/microwave-network" element={<MicrowaveNetwork />} />
-              <Route path="/optical-long-haul" element={<OpticalLongHaul />} />
-              <Route path="/wifi-network" element={<WifiNetwork />} />
-              <Route path="/resources" element={<Resources />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/terms" element={<Terms />} />
-            </Routes>
-          </main>
-          <Footer />
-          <Chatbot />
-        </div>
-      </BrowserRouter>
       <AuthProvider>
         <BrowserRouter>
-          <div className="flex flex-col min-h-screen">
+          <NetworkBackground />
+          <div className="flex flex-col min-h-screen relative z-[5]">
             <Header />
             <main className="flex-grow pt-16">
               <Routes>
