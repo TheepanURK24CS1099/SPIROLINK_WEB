@@ -6,6 +6,7 @@ import { Section, SectionHeading } from '../components/ui/Section';
 import { useI18n } from '../i18n/I18nProvider';
 import { useAuth } from '../contexts/AuthContext';
 import StayTuned from '../components/StayTuned';
+import Chatbot from '../components/Chatbot';
 
 const rotate3dClasses = ['rotate-3d-1', 'rotate-3d-2', 'rotate-3d-3', 'rotate-3d-4', 'rotate-3d-5'];
 
@@ -305,6 +306,7 @@ export default function Home() {
         </div>
       </Section>
       </div>
+      <Chatbot />
     </>
   );
 }
